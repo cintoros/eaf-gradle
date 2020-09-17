@@ -1,0 +1,22 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    // the following dependencies are necessary for the transaction support
+    implementation("org.springframework.boot:spring-boot-starter-jdbc")
+    runtimeOnly("com.h2database:h2")
+}
+test {
+    useJUnitPlatform()
+}
+task l01MovierentalClient(type: org.springframework.boot.gradle.tasks.run.BootRun) {
+    main = 'ch.fhnw.eaf.rental.MovieRentalClient'
+    classpath += test.classpath
+}
+task l01MovierentalMemory(type: org.springframework.boot.gradle.tasks.run.BootRun) {
+    main = 'ch.fhnw.eaf.rental.MovieRentalServer'
+    classpath += test.classpath
+}
+task l01SpringIoc(type: org.springframework.boot.gradle.tasks.run.BootRun) {
+    main = 'ch.fhnw.eaf.springioc.SpringIocApplication'
+    classpath += test.classpath
+}
