@@ -5,9 +5,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class WelcomeProvider implements MessageProvider {
 
-	@Override
-	public String getMessage() {
-		return "Welcome!";
-	}
+  @Override
+  public String getMessage() {
+    return "Welcome!";
+  }
 
 }

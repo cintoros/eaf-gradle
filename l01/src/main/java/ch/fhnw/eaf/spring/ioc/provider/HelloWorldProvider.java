@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 @Primary
 public class HelloWorldProvider implements MessageProvider {
 
-	@Value("${ch.fhnw.eaf.msg:Hello World}")
-	String message;
-	
-	@Override
-	public String getMessage() {
-		return message;
-	}
+  @Value("${ch.fhnw.eaf.msg:Hello World}")
+  String message;
+
+  @Override
+  public String getMessage() {
+    return message;
+  }
 
 }

@@ -1,45 +1,45 @@
 plugins {
-    id 'org.springframework.boot' version '2.3.3.RELEASE' apply false
-    id 'io.spring.dependency-management' version '1.0.10.RELEASE' apply false
+  id 'org.springframework.boot' version '2.3.3.RELEASE' apply false
+  id 'io.spring.dependency-management' version '1.0.10.RELEASE' apply false
 }
 allprojects {
-    repositories {
-        mavenLocal()
-        jcenter()
-        mavenCentral()
-    }
+  repositories {
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+  }
 }
 subprojects {
-    apply plugin: 'java'
-    apply plugin: 'io.spring.dependency-management'
-    apply plugin: 'org.springframework.boot'
+  apply plugin: 'java'
+  apply plugin: 'io.spring.dependency-management'
+  apply plugin: 'org.springframework.boot'
 
-    group = 'com.fhnw.eaf'
-    version = '0.0.1-SNAPSHOT'
-    sourceCompatibility = 11
-    targetCompatibility = 11
+  group = 'com.fhnw.eaf'
+  version = '0.0.1-SNAPSHOT'
+  sourceCompatibility = 11
+  targetCompatibility = 11
 
-    //managed dependency versions
-    dependencyManagement {
-        dependencies {
-            dependency 'org.apache.tika:tika-parsers:1.24.1'
-            dependency 'org.flywaydb:flyway-core:6.5.3'
-            dependencySet(group: 'org.jooq', version: '3.13.2') {
-                entry 'jooq'
-                entry 'jooq-codegen'
-            }
-            dependency 'org.mariadb.jdbc:mariadb-java-client:2.6.2'
-        }
-    }
+  //managed dependency versions
+  dependencyManagement {
     dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-web'
-        testImplementation('org.springframework.boot:spring-boot-starter-test')
-        // the following dependencies are necessary for the transaction support
-        implementation("org.springframework.boot:spring-boot-starter-jdbc")
-        runtimeOnly("com.h2database:h2")
+      dependency 'org.apache.tika:tika-parsers:1.24.1'
+      dependency 'org.flywaydb:flyway-core:6.5.3'
+      dependencySet(group: 'org.jooq', version: '3.13.2') {
+        entry 'jooq'
+        entry 'jooq-codegen'
+      }
+      dependency 'org.mariadb.jdbc:mariadb-java-client:2.6.2'
     }
-    test {
-        useJUnitPlatform()
-    }
+  }
+  dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    // the following dependencies are necessary for the transaction support
+    implementation("org.springframework.boot:spring-boot-starter-jdbc")
+    runtimeOnly("com.h2database:h2")
+  }
+  test {
+    useJUnitPlatform()
+  }
 
 }
