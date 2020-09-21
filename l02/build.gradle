@@ -8,11 +8,11 @@ dependencies {
 test {
   useJUnitPlatform()
 }
-task l01MovierentalClient(type: org.springframework.boot.gradle.tasks.run.BootRun) {
+task l02MovierentalClient(type: org.springframework.boot.gradle.tasks.run.BootRun) {
   main = 'ch.fhnw.eaf.rental.MovieRentalClient'
   classpath += test.classpath
 }
-task l01MovierentalServer(type: org.springframework.boot.gradle.tasks.run.BootRun) {
+task l02MovierentalServer(type: org.springframework.boot.gradle.tasks.run.BootRun) {
   main = 'ch.fhnw.eaf.rental.MovieRentalServer'
   classpath += test.classpath
 }
