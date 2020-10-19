@@ -1,2 +1,6 @@
-include 'l01'
-include 'l02'
+include 'l01_movierental.client'
+include 'l01_movierental.memory'
+include 'l01_spring-ioc'
+include 'l06_ab1'
+include 'l06_ub1'
+

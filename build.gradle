@@ -29,14 +29,15 @@ subprojects {
         entry 'jooq-codegen'
       }
       dependency 'org.mariadb.jdbc:mariadb-java-client:2.6.2'
+      dependency 'org.hibernate:hibernate-jpamodelgen:5.4.21.Final'
+      dependency 'org.mapstruct:mapstruct:1.4.0.Final'
+      dependency 'org.mapstruct:mapstruct-processor:1.4.0.Final'
+      dependency 'org.springdoc:springdoc-openapi-ui:1.4.8'
     }
   }
   dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
-    // the following dependencies are necessary for the transaction support
-    implementation("org.springframework.boot:spring-boot-starter-jdbc")
-    runtimeOnly("com.h2database:h2")
   }
   test {
     useJUnitPlatform()

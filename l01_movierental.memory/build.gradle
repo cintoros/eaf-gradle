@@ -1,0 +1,11 @@
+dependencies {
+  implementation("org.springframework.boot:spring-boot-starter-jdbc")
+  runtimeOnly("com.h2database:h2")
+}
+test {
+  useJUnitPlatform()
+}
+task l01_movierental_memory(type: org.springframework.boot.gradle.tasks.run.BootRun) {
+  main = 'ch.fhnw.eaf.rental.MovieRentalServer'
+  classpath += test.classpath
+}

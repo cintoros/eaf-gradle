@@ -1,0 +1,6 @@
+dependencies {
+}
+task l06_spring_ioc(type: org.springframework.boot.gradle.tasks.run.BootRun) {
+  main = 'ch.fhnw.eaf.spring.ioc.SpringIocApplication'
+  classpath += test.classpath
+}
