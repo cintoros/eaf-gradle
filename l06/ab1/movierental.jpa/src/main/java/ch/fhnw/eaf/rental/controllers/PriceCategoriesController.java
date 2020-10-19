@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/movierental")
+@RequestMapping("/pricecategories")
 public class PriceCategoriesController {
 
   @Autowired
   private MovieService movieService;
 
-  @GetMapping(path = "/pricecategories")
+  @GetMapping
   public List<PriceCategory> getAllPriceCategories() {
     return movieService.getAllPriceCategories();
   }

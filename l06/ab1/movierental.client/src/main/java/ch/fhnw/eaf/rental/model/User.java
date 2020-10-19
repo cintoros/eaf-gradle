@@ -1,103 +1,76 @@
 package ch.fhnw.eaf.rental.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "USERS")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Rental.class)
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-//the following annotations are yoused in the entity manager implementation
-@NamedQuery(name = User.FIND_ALL, query = "SELECT u FROM User u")
-@NamedQuery(name = User.EXISTS, query = "SELECT COUNT(u) FROM User u WHERE u.id = :id")
-@NamedQuery(name = User.COUNT, query = "SELECT COUNT(u) FROM User u")
-@NamedQuery(name = User.FIND_BY_LAST_NAME, query = "SELECT u FROM User u WHERE u.lastName = :name")
-@NamedQuery(name = User.FIND_BY_FIRST_NAME, query = "SELECT u FROM User u WHERE u.firstName = :name")
-@NamedQuery(name = User.FIND_BY_EMAIL, query = "SELECT u FROM User u WHERE u.email = :email")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = User.class)
 public class User {
-  public static final String FIND_ALL = "User.all";
-  public static final String FIND_BY_LAST_NAME = "User.byLastName";
-  public static final String FIND_BY_FIRST_NAME = "User.byFirstName";
-  public static final String FIND_BY_EMAIL = "User.byTitle";
-  public static final String EXISTS = "User.exists";
-  public static final String COUNT = "User.count";
+	private Long id;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "USER_ID")
-  private Long id;
+	private String lastName;
+	private String firstName;
+	private String email;
+	private List<Rental> rentals;
 
-  @Column(name = "USER_NAME")
-  private String lastName;
+	public User(String lastName, String firstName) {
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.rentals = new ArrayList<>();
+	}
 
-  @Column(name = "USER_FIRSTNAME")
-  private String firstName;
+	@SuppressWarnings("unused")
+	private User() {
+	}
 
-  @Column(name = "USER_EMAIL")
-  private String email;
+	public Long getId() {
+		return id;
+	}
 
-  @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-  private List<Rental> rentals;
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-  protected User() {
-  }
+	public String getLastName() {
+		return lastName;
+	}
 
-  public User(String lastName, String firstName) {
-    this.lastName = lastName;
-    this.firstName = firstName;
-    this.rentals = new ArrayList<>();
-  }
+	public void setLastName(String name) {
+		this.lastName = name;
+	}
 
-  public Long getId() {
-    return id;
-  }
+	public String getFirstName() {
+		return firstName;
+	}
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-  public String getLastName() {
-    return lastName;
-  }
+	public String getEmail() {
+		return email;
+	}
 
-  public void setLastName(String name) {
-    this.lastName = name;
-  }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-  public String getFirstName() {
-    return firstName;
-  }
+	public List<Rental> getRentals() {
+		return rentals;
+	}
 
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
+	public void setRentals(List<Rental> rentals) {
+		this.rentals = rentals;
+	}
 
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public List<Rental> getRentals() {
-    return rentals;
-  }
-
-  public void setRentals(List<Rental> rentals) {
-    this.rentals = rentals;
-  }
-
-  public int getCharge() {
-    int result = 0;
-    for (Rental rental : rentals) {
-      result += rental.getMovie().getPriceCategory().getCharge(rental.getRentalDays());
-    }
-    return result;
-  }
+	public int getCharge() {
+		int result = 0;
+		for (Rental rental : rentals) {
+			result += rental.getMovie().getPriceCategory().getCharge(rental.getRentalDays());
+		}
+		return result;
+	}
 
 }

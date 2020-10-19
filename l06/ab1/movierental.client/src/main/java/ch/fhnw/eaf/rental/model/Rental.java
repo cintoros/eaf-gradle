@@ -1,108 +1,84 @@
 package ch.fhnw.eaf.rental.model;
 
+import java.time.LocalDate;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import javax.persistence.*;
-import java.time.LocalDate;
-
-@Entity
-@Table(name = "RENTALS")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Rental.class)
-
-//the following annotations are yoused in the entity manager implementation
-@NamedQuery(name = Rental.FIND_ALL, query = "SELECT r FROM Rental r")
-@NamedQuery(name = Rental.EXISTS, query = "SELECT COUNT(r) FROM Rental r WHERE r.id = :id")
-@NamedQuery(name = Rental.COUNT, query = "SELECT COUNT(r) FROM Rental r")
 public class Rental {
-  public static final String FIND_ALL = "Rental.all";
-  public static final String EXISTS = "Rental.exists";
-  public static final String COUNT = "Rental.count";
+	private Long id;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "RENTAL_ID")
-  private Long id;
+	private Movie movie;
+	private User user;
+	private LocalDate rentalDate;
+	private int rentalDays;
 
-  @OneToOne
-  @JoinColumn(name = "MOVIE_ID")
-  private Movie movie;
+	public Rental(User user, Movie movie, int rentalDays) {
+		this(user, movie, rentalDays, LocalDate.now());
+	}
 
-  @ManyToOne
-  @JoinColumn(name = "USER_ID")
-  private User user;
+	public Rental(User user, Movie movie, int rentalDays, LocalDate rentalDate) {
+		if (user == null || movie == null || rentalDays <= 0) {
+			throw new NullPointerException("not all input parameters are set!" + user + "/" + movie + "/" + rentalDays);
+		}
+		if (movie.isRented()) {
+			throw new IllegalStateException("movie is already rented!");
+		}
+		this.user = user;
+		user.getRentals().add(this);
+		this.movie = movie;
+		movie.setRented(true);
+		this.rentalDays = rentalDays;
+		this.rentalDate = rentalDate;
+	}
 
-  @Column(name = "RENTAL_RENTALDATE")
-  private LocalDate rentalDate;
+	public Rental() {
+		this.rentalDate = LocalDate.now();
+	}
 
-  @Column(name = "RENTAL_RENTALDAYS")
-  private int rentalDays;
+	public double getRentalFee() {
+		return movie.getPriceCategory().getCharge(rentalDays);
+	}
 
-  public Rental() {
-    this.rentalDate = LocalDate.now();
-  }
+	public Long getId() {
+		return id;
+	}
 
-  public Rental(User user, Movie movie, int rentalDays) {
-    this(user, movie, rentalDays, LocalDate.now());
-  }
+	public Movie getMovie() {
+		return movie;
+	}
 
-  public Rental(User user, Movie movie, int rentalDays, LocalDate rentalDate) {
-    if (user == null || movie == null || rentalDays <= 0) {
-      throw new NullPointerException("not all input parameters are set!" + user + "/" + movie + "/" + rentalDays);
-    }
-    if (movie.isRented()) {
-      throw new IllegalStateException("movie is already rented!");
-    }
-    this.user = user;
-    user.getRentals().add(this);
-    this.movie = movie;
-    movie.setRented(true);
-    this.rentalDays = rentalDays;
-    this.rentalDate = rentalDate;
-  }
+	public User getUser() {
+		return user;
+	}
 
-  public double getRentalFee() {
-    return movie.getPriceCategory().getCharge(rentalDays);
-  }
+	public LocalDate getRentalDate() {
+		return rentalDate;
+	}
 
-  public Long getId() {
-    return id;
-  }
+	public int getRentalDays() {
+		return rentalDays;
+	}
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-  public Movie getMovie() {
-    return movie;
-  }
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
 
-  public void setMovie(Movie movie) {
-    this.movie = movie;
-  }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-  public User getUser() {
-    return user;
-  }
+	public void setRentalDate(LocalDate rentalDate) {
+		this.rentalDate = rentalDate;
+	}
 
-  public void setUser(User user) {
-    this.user = user;
-  }
-
-  public LocalDate getRentalDate() {
-    return rentalDate;
-  }
-
-  public void setRentalDate(LocalDate rentalDate) {
-    this.rentalDate = rentalDate;
-  }
-
-  public int getRentalDays() {
-    return rentalDays;
-  }
-
-  public void setRentalDays(int rentalDays) {
-    this.rentalDays = rentalDays;
-  }
+	public void setRentalDays(int rentalDays) {
+		this.rentalDays = rentalDays;
+	}
 
 }

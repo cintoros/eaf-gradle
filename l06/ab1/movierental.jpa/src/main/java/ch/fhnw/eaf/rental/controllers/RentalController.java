@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/movierental")
+@RequestMapping("/rentals")
 public class RentalController {
 
   @Autowired
@@ -24,24 +24,24 @@ public class RentalController {
   @Autowired
   private MovieService movieService;
 
-  @GetMapping(path = "/rentals")
+  @GetMapping
   public List<Rental> getAllRentals() {
     return rentalService.getAllRentals();
   }
 
-  @PostMapping(path = "/rentals")
+  @PostMapping
   public Rental createRental(@RequestBody CreateRentalData data) {
     User user = userService.getUserById(data.userId);
     Movie movie = movieService.getMovieById(data.movieId);
     return userService.rentMovie(user, movie, data.rentalDays);
   }
 
-  @GetMapping(path = "/rentals/{id}")
+  @GetMapping("/{id}")
   public Rental getRental(@PathVariable Long id) {
     return rentalService.getRentalById(id);
   }
 
-  @DeleteMapping(path = "/rentals/{id}")
+  @DeleteMapping("/{id}")
   public void deleteRental(@PathVariable Long id) {
     rentalService.deleteRental(rentalService.getRentalById(id));
   }

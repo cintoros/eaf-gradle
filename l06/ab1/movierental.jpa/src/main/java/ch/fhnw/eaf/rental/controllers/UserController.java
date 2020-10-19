@@ -8,34 +8,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/movierental")
+@RequestMapping("/users")
 public class UserController {
 
   @Autowired
   private UserService userService;
 
-  @GetMapping(path = "/users")
+  @GetMapping
   public List<User> getAllUsers() {
     return userService.getAllUsers();
   }
 
-  @PostMapping(path = "/users")
+  @PostMapping
   public User createUser(@RequestBody User user) {
     userService.save(user);
     return user;
   }
 
-  @GetMapping(path = "/users/{id}")
+  @GetMapping("/{id}")
   public User getUser(@PathVariable Long id) {
     return userService.getUserById(id);
   }
 
-  @DeleteMapping(path = "/users/{id}")
+  @DeleteMapping("/{id}")
   public void deleteUser(@PathVariable Long id) {
     userService.deleteUser(userService.getUserById(id));
   }
 
-  @PutMapping(path = "/users/{id}")
+  @PutMapping("/{id}")
   public void updateUser(@PathVariable Long id, @RequestBody User user) {
     userService.save(user);
   }
