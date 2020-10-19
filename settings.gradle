@@ -1,17 +1,15 @@
-include 'l01_movierental.client'
-include 'l01_movierental.memory'
-include 'l01_spring-ioc'
-include 'l06:ab1:movierental.client'
-include 'l06:ab1:movierental.jpa'
-include 'l06:ub1'
-include 'l07_ab2:movierental.client'
-include 'l07_ab2:movierental.jpa'
-include 'l07_ab3:movierental.client'
-include 'l07_ab3:movierental.jpa'
-include 'l07_ub2:movierental.client'
-include 'l07_ub2:movierental.jpa'
-//rootDir.listFiles().each {
-//  if (it.directory && new File(it, 'build.gradle').exists()) {
-//    include ":${it.name}"
-//  }
-//}
+def includeAll(File dDir, String lastDir) {
+  dDir.listFiles().each { dir ->
+    if ((!(~/^(build|gradle|.idea|.gradle|wrapper|src|out|.git)/).matcher(dir.name)) && dir.directory) {
+      if (new File(dir, 'build.gradle').exists()) {
+        println "include?" + lastDir + (dir.name)
+        include lastDir + dir.name
+      } else {
+        println lastDir + (dir.name)
+        includeAll(dir, lastDir + dir.name + ":")
+      }
+    }
+  }
+}
+
+includeAll(rootDir, "")
