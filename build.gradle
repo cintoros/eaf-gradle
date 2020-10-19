@@ -42,5 +42,16 @@ subprojects {
   test {
     useJUnitPlatform()
   }
+  tasks.withType(JavaCompile) {
+    options.annotationProcessorGeneratedSourcesDirectory = file("$buildDir/generated")
+  }
+
+  sourceSets {
+    main {
+      java {
+        srcDirs += ["$buildDir/generated"]
+      }
+    }
+  }
 
 }
