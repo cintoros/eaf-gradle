@@ -8,6 +8,5 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class PriceCategoryRegular_ extends ch.fhnw.eaf.rental.model.PriceCategory_ {
 
 
-
 }
 
