@@ -9,7 +9,7 @@ dependencies {
   implementation("org.mapstruct:mapstruct")
   annotationProcessor("org.mapstruct:mapstruct-processor")
   // Swagger, OpenAPI
-  implementation("org.springdoc:springdoc-openapi-ui:")
+  implementation("org.springdoc:springdoc-openapi-ui")
 }
 test {
   useJUnitPlatform()

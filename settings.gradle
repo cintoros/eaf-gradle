@@ -1,11 +1,17 @@
 include 'l01_movierental.client'
 include 'l01_movierental.memory'
 include 'l01_spring-ioc'
-include 'l06_ab1'
-include 'l06_ub1'
+include 'l06:ab1:movierental.client'
+include 'l06:ab1:movierental.jpa'
+include 'l06:ub1'
 include 'l07_ab2:movierental.client'
 include 'l07_ab2:movierental.jpa'
 include 'l07_ab3:movierental.client'
 include 'l07_ab3:movierental.jpa'
 include 'l07_ub2:movierental.client'
 include 'l07_ub2:movierental.jpa'
+//rootDir.listFiles().each {
+//  if (it.directory && new File(it, 'build.gradle').exists()) {
+//    include ":${it.name}"
+//  }
+//}
