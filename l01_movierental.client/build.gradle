@@ -4,6 +4,6 @@ test {
   useJUnitPlatform()
 }
 task l01_movierental_client(type: org.springframework.boot.gradle.tasks.run.BootRun) {
-  main = 'ch.fhnw.eaf.rental.MovieRentalServer'
+  main = 'ch.fhnw.eaf.rental.MovieRentalClient'
   classpath += test.classpath
 }

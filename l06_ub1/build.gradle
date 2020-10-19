@@ -15,8 +15,8 @@ dependencies {
 test {
   useJUnitPlatform()
 }
-task l06_ub1_movierental_jpa(type: org.springframework.boot.gradle.tasks.run.BootRun) {
-  main = 'ch.fhnw.eaf.rental.MovieRentalClient'
+task l06_ub1(type: org.springframework.boot.gradle.tasks.run.BootRun) {
+  main = 'ch.fhnw.eaf.rental.MovieRentalServer'
   classpath += test.classpath
 }
 
