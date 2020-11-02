@@ -1,18 +1,13 @@
 package ch.fhnw.eaf.rental.persistence.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
-import org.springframework.stereotype.Component;
-
 import ch.fhnw.eaf.rental.model.PriceCategory;
 import ch.fhnw.eaf.rental.model.PriceCategoryChildren;
 import ch.fhnw.eaf.rental.model.PriceCategoryNewRelease;
 import ch.fhnw.eaf.rental.model.PriceCategoryRegular;
 import ch.fhnw.eaf.rental.persistence.PriceCategoryRepository;
+import org.springframework.stereotype.Component;
+
+import java.util.*;
 
 @Component
 public class PriceCategoryRepositoryImpl implements PriceCategoryRepository {

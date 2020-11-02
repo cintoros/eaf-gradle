@@ -1,5 +1,0 @@
-bootRun{}
-task l06_ab1_client(type: org.springframework.boot.gradle.tasks.run.BootRun) {
-  main = 'ch.fhnw.eaf.rental.MovieRentalClient'
-  classpath += test.classpath
-}

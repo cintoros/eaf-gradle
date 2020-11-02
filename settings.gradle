@@ -2,10 +2,8 @@ def includeAll(File dDir, String lastDir) {
   dDir.listFiles().each { dir ->
     if ((!(~/^(build|gradle|.idea|.gradle|wrapper|src|out|.git)/).matcher(dir.name)) && dir.directory) {
       if (new File(dir, 'build.gradle').exists()) {
-        println "include?" + lastDir + (dir.name)
         include lastDir + dir.name
       } else {
-        println lastDir + (dir.name)
         includeAll(dir, lastDir + dir.name + ":")
       }
     }

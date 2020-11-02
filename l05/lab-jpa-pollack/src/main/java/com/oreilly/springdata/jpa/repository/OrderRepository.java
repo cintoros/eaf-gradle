@@ -15,25 +15,24 @@
  */
 package com.oreilly.springdata.jpa.repository;
 
-import java.util.List;
-
-import org.springframework.data.repository.CrudRepository;
-
 import com.oreilly.springdata.jpa.model.Customer;
 import com.oreilly.springdata.jpa.model.Order;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
 
 /**
  * Repository to access {@link Order}s.
- * 
+ *
  * @author Oliver Gierke
  */
 public interface OrderRepository extends CrudRepository<Order, Long> {
 
-	/**
-	 * Returns all {@link Order}s of the given {@link Customer}.
-	 * 
-	 * @param customer
-	 * @return
-	 */
-	List<Order> findByCustomer(Customer customer);
+  /**
+   * Returns all {@link Order}s of the given {@link Customer}.
+   *
+   * @param customer
+   * @return
+   */
+  List<Order> findByCustomer(Customer customer);
 }

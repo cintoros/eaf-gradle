@@ -1,12 +1,11 @@
 package ch.fhnw.eaf.rental.persistence.impl;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.stereotype.Repository;
-
 import ch.fhnw.eaf.rental.model.User;
 import ch.fhnw.eaf.rental.persistence.UserRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class JpaUserRepository implements UserRepository {

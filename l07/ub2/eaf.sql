@@ -27,38 +27,58 @@ SET time_zone = "+00:00";
 -- Tabellenstruktur für Tabelle `movies`
 --
 
-CREATE TABLE `movies` (
-  `movie_id` bigint NOT NULL,
-  `movie_releasedate` date DEFAULT NULL,
-  `movie_rented` bit(1) DEFAULT NULL,
-  `movie_title` varchar(255) DEFAULT NULL,
-  `pricecategory_fk` bigint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE ` movies `
+(
+    `
+    movie_id
+    `
+    bigint
+    NOT
+    NULL,
+    `
+    movie_releasedate
+    `
+    date
+    DEFAULT
+    NULL,
+    `
+    movie_rented
+    `
+    bit
+(
+    1
+) DEFAULT NULL,
+    ` movie_title ` varchar
+(
+    255
+) DEFAULT NULL,
+    ` pricecategory_fk ` bigint DEFAULT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE =utf8mb4_0900_ai_ci;
 
 --
 -- Daten für Tabelle `movies`
 --
 
-INSERT INTO `movies` (`movie_id`, `movie_releasedate`, `movie_rented`, `movie_title`, `pricecategory_fk`) VALUES
-(1, '2017-05-11', b'1', 'Marie Curie', 1),
-(2, '2017-07-20', b'1', 'Curchill', 1),
-(3, '2017-08-18', b'1', 'The Boss Baby', 2),
-(4, '2017-08-31', b'0', 'Pirates of the Caribean: Salazar\'s Revenge', 1),
-(5, '2017-09-07', b'0', 'Die göttliche Ordnung', 1),
-(6, '2018-05-25', b'0', 'Loving Vincent', 1),
+INSERT INTO ` movies ` (` movie_id `, ` movie_releasedate `, ` movie_rented `, ` movie_title `, ` pricecategory_fk `)
+VALUES (1, '2017-05-11', b'1', 'Marie Curie', 1),
+       (2, '2017-07-20', b'1', 'Curchill', 1),
+       (3, '2017-08-18', b'1', 'The Boss Baby', 2),
+       (4, '2017-08-31', b'0', 'Pirates of the Caribean: Salazar\' s Revenge ', 1),
+(5, '2017-09-07', b'0', 'Die göttliche Ordnung ', 1),
+(6, '2018-05-25', b'0', 'Loving Vincent ', 1),
 (7, '2018-08-13', b'0', 'Fast & Furious 7', 1),
-(8, '2018-10-01', b'0', 'Momo', 2),
-(9, '2018-10-03', b'0', 'Swimming with Men', 1),
-(10, '2018-10-22', b'0', 'Jurassic World', 2),
-(11, '2019-02-28', b'0', 'Bohemian Rhapsody', 1),
-(12, '2019-03-13', b'0', 'Wolkenbruch', 1),
-(13, '2019-09-04', b'0', 'The old Man and the Gun', 1),
-(14, '2019-09-20', b'0', 'Stan and Ollie', 2),
-(15, '2019-09-25', b'0', 'Zwingli', 1),
-(16, '2020-01-30', b'0', 'Downtown Abbey', 1),
-(17, '2020-03-12', b'0', 'Gut geten Nordwind', 3),
+(8, '2018-10-01', b'0', 'Momo ', 2),
+(9, '2018-10-03', b'0', 'Swimming with Men ', 1),
+(10, '2018-10-22', b'0', 'Jurassic World ', 2),
+(11, '2019-02-28', b'0', 'Bohemian Rhapsody ', 1),
+(12, '2019-03-13', b'0', 'Wolkenbruch ', 1),
+(13, '2019-09-04', b'0', 'The old Man and the Gun ', 1),
+(14, '2019-09-20', b'0', 'Stan and Ollie ', 2),
+(15, '2019-09-25', b'0', 'Zwingli ', 1),
+(16, '2020-01-30', b'0', 'Downtown Abbey ', 1),
+(17, '2020-03-12', b'0', 'Gut geten Nordwind ', 3),
 (18, '2020-05-01', b'0', 'Moskau einfach!', 3),
-(19, '2020-07-09', b'0', 'The Invisible Man', 3);
+(19, '2020-07-09', b'0', 'The Invisible Man ', 3);
 
 -- --------------------------------------------------------
 
@@ -76,9 +96,9 @@ CREATE TABLE `pricecategories` (
 --
 
 INSERT INTO `pricecategories` (`pricecategory_type`, `pricecategory_id`) VALUES
-('Regular', 1),
-('Children', 2),
-('NewRelease', 3);
+(' Regular ', 1),
+(' Children ', 2),
+(' NewRelease ', 3);
 
 -- --------------------------------------------------------
 
@@ -121,10 +141,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_email`, `user_firstname`, `user_name`) VALUES
-(1, 'marc.keller@gmail.com', 'Marc', 'Keller'),
-(2, 'werner.knecht@gmail.com', 'Werner', 'Knecht'),
-(3, 'barbara.meyer@gmail.com', 'Barbara', 'Meyer'),
-(4, 'adolf.kummer@gmail.com', 'Adolf', 'Kummer');
+(1, 'marc.keller@gmail.com ', ' Marc ', ' Keller '),
+(2, ' werner.knecht@gmail.com ', ' Werner ', ' Knecht '),
+(3, ' barbara.meyer@gmail.com ', ' Barbara ', ' Meyer '),
+(4, ' adolf.kummer@gmail.com ', ' Adolf ', ' Kummer ');
 
 --
 -- Indizes der exportierten Tabellen

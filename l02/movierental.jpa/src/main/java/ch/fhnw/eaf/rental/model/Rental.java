@@ -1,9 +1,9 @@
 package ch.fhnw.eaf.rental.model;
 
-import java.time.LocalDate;
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import java.time.LocalDate;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Rental.class)
 public class Rental {

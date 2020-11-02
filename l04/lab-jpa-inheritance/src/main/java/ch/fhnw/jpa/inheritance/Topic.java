@@ -6,29 +6,29 @@ import javax.persistence.Id;
 
 @Entity
 public abstract class Topic {
-	@Id
-	@GeneratedValue
-	private Long id;
-	private String title;
-	private String owner;
+  @Id
+  @GeneratedValue
+  private Long id;
+  private String title;
+  private String owner;
 
-	protected Topic() {
-	}
+  protected Topic() {
+  }
 
-	public Topic(String title, String owner) {
-		this.title = title;
-		this.owner = owner;
-	}
+  public Topic(String title, String owner) {
+    this.title = title;
+    this.owner = owner;
+  }
 
-	public Long getId() {
-		return id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public String getTitle() {
-		return title;
-	}
+  public String getTitle() {
+    return title;
+  }
 
-	public String getOwner() {
-		return owner;
-	}
+  public String getOwner() {
+    return owner;
+  }
 }

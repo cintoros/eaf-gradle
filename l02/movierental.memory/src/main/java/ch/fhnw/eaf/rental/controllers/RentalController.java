@@ -1,22 +1,15 @@
 package ch.fhnw.eaf.rental.controllers;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import ch.fhnw.eaf.rental.model.Movie;
 import ch.fhnw.eaf.rental.model.Rental;
 import ch.fhnw.eaf.rental.model.User;
 import ch.fhnw.eaf.rental.services.MovieService;
 import ch.fhnw.eaf.rental.services.RentalService;
 import ch.fhnw.eaf.rental.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/movierental")

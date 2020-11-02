@@ -15,13 +15,10 @@
  */
 package com.oreilly.springdata.jpa.test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import com.oreilly.springdata.jpa.model.Address;
+import com.oreilly.springdata.jpa.model.Customer;
+import com.oreilly.springdata.jpa.model.EmailAddress;
+import com.oreilly.springdata.jpa.repository.CustomerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +26,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.oreilly.springdata.jpa.model.Address;
-import com.oreilly.springdata.jpa.model.Customer;
-import com.oreilly.springdata.jpa.model.EmailAddress;
-import com.oreilly.springdata.jpa.repository.CustomerRepository;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 /**
  * Integration tests for {@link CustomerRepository}.
- * 
+ *
  * @author Oliver Gierke
  */
 @RunWith(SpringRunner.class)
@@ -44,69 +43,69 @@ import com.oreilly.springdata.jpa.repository.CustomerRepository;
 @Transactional
 public class CustomerRepositoryIntegrationTest {
 
-	@Autowired
-	CustomerRepository repository;
+  @Autowired
+  CustomerRepository repository;
 
-	@PersistenceContext
-	EntityManager em;
+  @PersistenceContext
+  EntityManager em;
 
-	@Test
-	public void savesCustomerCorrectly() {
+  @Test
+  public void savesCustomerCorrectly() {
 
-		EmailAddress email = new EmailAddress("alicia@keys.com");
+    EmailAddress email = new EmailAddress("alicia@keys.com");
 
-		Customer dave = new Customer("Alicia", "Keys");
-		dave.setEmailAddress(email);
-		dave.add(new Address("27 Broadway", "New York", "United States"));
+    Customer dave = new Customer("Alicia", "Keys");
+    dave.setEmailAddress(email);
+    dave.add(new Address("27 Broadway", "New York", "United States"));
 
-		Customer result = repository.save(dave);
-		assertThat(result.getId(), is(notNullValue()));
-	}
+    Customer result = repository.save(dave);
+    assertThat(result.getId(), is(notNullValue()));
+  }
 
-	@Test
-	public void readsCustomerByEmail() {
+  @Test
+  public void readsCustomerByEmail() {
 
-		EmailAddress email = new EmailAddress("alicia@keys.com");
-		Customer alicia = new Customer("Alicia", "Keys");
-		alicia.setEmailAddress(email);
+    EmailAddress email = new EmailAddress("alicia@keys.com");
+    Customer alicia = new Customer("Alicia", "Keys");
+    alicia.setEmailAddress(email);
 
-		repository.save(alicia);
+    repository.save(alicia);
 
-		Customer result = repository.findByEmailAddress(email);
-		assertThat(result, is(alicia));
-	}
+    Customer result = repository.findByEmailAddress(email);
+    assertThat(result, is(alicia));
+  }
 
-	@Test(expected = org.springframework.dao.DataIntegrityViolationException.class)
-	public void preventsDuplicateEmail() {
+  @Test(expected = org.springframework.dao.DataIntegrityViolationException.class)
+  public void preventsDuplicateEmail() {
 
-		Customer dave = repository.findByEmailAddress(new EmailAddress("dave@dmband.com"));
+    Customer dave = repository.findByEmailAddress(new EmailAddress("dave@dmband.com"));
 
-		Customer anotherDave = new Customer("Dave", "Matthews");
-		anotherDave.setEmailAddress(dave.getEmailAddress());
+    Customer anotherDave = new Customer("Dave", "Matthews");
+    anotherDave.setEmailAddress(dave.getEmailAddress());
 
-		repository.save(anotherDave);
-	}
+    repository.save(anotherDave);
+  }
 
-	@Test
-	public void insertsNewCustomerCorrectly() {
+  @Test
+  public void insertsNewCustomerCorrectly() {
 
-		Customer customer = new Customer("Alicia", "Keys");
-		customer = repository.save(customer);
+    Customer customer = new Customer("Alicia", "Keys");
+    customer = repository.save(customer);
 
-		assertThat(customer.getId(), is(notNullValue()));
-	}
+    assertThat(customer.getId(), is(notNullValue()));
+  }
 
-	@Test
-	public void updatesCustomerCorrectly() {
+  @Test
+  public void updatesCustomerCorrectly() {
 
-		Customer dave = repository.findByEmailAddress(new EmailAddress("dave@dmband.com"));
-		assertThat(dave, is(notNullValue()));
+    Customer dave = repository.findByEmailAddress(new EmailAddress("dave@dmband.com"));
+    assertThat(dave, is(notNullValue()));
 
-		dave.setLastname("Miller");
-		dave = repository.save(dave);
+    dave.setLastname("Miller");
+    dave = repository.save(dave);
 
-		Customer reference = repository.findByEmailAddress(dave.getEmailAddress());
-		assertThat(reference.getLastname(), is(dave.getLastname()));
-	}
+    Customer reference = repository.findByEmailAddress(dave.getEmailAddress());
+    assertThat(reference.getLastname(), is(dave.getLastname()));
+  }
 
 }

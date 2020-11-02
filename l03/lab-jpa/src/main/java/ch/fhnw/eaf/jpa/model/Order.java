@@ -9,14 +9,14 @@ import javax.persistence.Table;
 @Table(name = "ORDERS")
 public class Order {
 
-	public Order() {
-	}
+  @Id
+  @GeneratedValue
+  private int id;
 
-	@Id
-	@GeneratedValue
-	private int id;
+  public Order() {
+  }
 
-	public int getId() {
-		return id;
-	}
+  public int getId() {
+    return id;
+  }
 }

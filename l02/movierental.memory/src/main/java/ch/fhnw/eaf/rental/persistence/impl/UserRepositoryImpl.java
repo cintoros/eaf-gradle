@@ -1,18 +1,13 @@
 package ch.fhnw.eaf.rental.persistence.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import ch.fhnw.eaf.rental.model.Rental;
 import ch.fhnw.eaf.rental.model.User;
 import ch.fhnw.eaf.rental.persistence.RentalRepository;
 import ch.fhnw.eaf.rental.persistence.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.*;
 
 @Component
 public class UserRepositoryImpl implements UserRepository {

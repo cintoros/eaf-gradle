@@ -15,36 +15,36 @@
  */
 package com.oreilly.springdata.jpa.test.matchers;
 
-import static org.hamcrest.Matchers.*;
-
+import com.oreilly.springdata.jpa.model.Product;
 import org.hamcrest.Matcher;
 
-import com.oreilly.springdata.jpa.model.Product;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.is;
 
 /**
  * Custom matchers to ease assertions on our domain classes.
- * 
+ *
  * @author Oliver Gierke
  */
 public class CoreMatchers {
 
-	/**
-	 * Syntactic sugar to make Matchers more readable.
-	 * 
-	 * @param matcher must not be {@literal null}.
-	 * @return
-	 */
-	public static <T> Matcher<T> with(Matcher<T> matcher) {
-		return matcher;
-	}
+  /**
+   * Syntactic sugar to make Matchers more readable.
+   *
+   * @param matcher must not be {@literal null}.
+   * @return
+   */
+  public static <T> Matcher<T> with(Matcher<T> matcher) {
+    return matcher;
+  }
 
-	/**
-	 * Matches if the {@link Product} has the given name.
-	 * 
-	 * @param name must not be {@literal null}.
-	 * @return
-	 */
-	public static Matcher<Product> named(String name) {
-		return hasProperty("name", is(name));
-	}
+  /**
+   * Matches if the {@link Product} has the given name.
+   *
+   * @param name must not be {@literal null}.
+   * @return
+   */
+  public static Matcher<Product> named(String name) {
+    return hasProperty("name", is(name));
+  }
 }

@@ -1,39 +1,38 @@
 package ch.fhnw.eaf.jpa.test4;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-
+import ch.fhnw.eaf.jpa.model.Address;
+import ch.fhnw.eaf.jpa.model.Customer;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
-import ch.fhnw.eaf.jpa.model.Address;
-import ch.fhnw.eaf.jpa.model.Customer;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 @SpringBootApplication
 @EntityScan(basePackageClasses = Customer.class)
 public class Test4 implements CommandLineRunner {
 
-	@PersistenceContext
-	EntityManager em;
+  @PersistenceContext
+  EntityManager em;
 
-	public static void main(String[] args) {
-		new SpringApplicationBuilder(Test4.class).run(args);
-	}
+  public static void main(String[] args) {
+    new SpringApplicationBuilder(Test4.class).run(args);
+  }
 
-	@Override
-	@Transactional
-	public void run(String... args) throws Exception {
+  @Override
+  @Transactional
+  public void run(String... args) throws Exception {
 
-		Customer c = new Customer("Gosling", 55);
-		Address a = new Address("Infinite Loop 1", "Cupertino");
-		c.setAddress(a);
+    Customer c = new Customer("Gosling", 55);
+    Address a = new Address("Infinite Loop 1", "Cupertino");
+    c.setAddress(a);
 
-		// em.persist(a);
-		em.persist(c);
+    // em.persist(a);
+    em.persist(c);
 
-		System.out.println("done");
-	}
+    System.out.println("done");
+  }
 }

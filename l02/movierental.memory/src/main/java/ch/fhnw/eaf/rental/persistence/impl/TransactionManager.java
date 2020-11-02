@@ -1,9 +1,6 @@
 package ch.fhnw.eaf.rental.persistence.impl;
 
-import java.lang.reflect.Method;
-
-import javax.annotation.PostConstruct;
-
+import ch.fhnw.eaf.rental.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -11,11 +8,8 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.TransactionStatus;
 
-import ch.fhnw.eaf.rental.persistence.MovieRepository;
-import ch.fhnw.eaf.rental.persistence.PriceCategoryRepository;
-import ch.fhnw.eaf.rental.persistence.RentalRepository;
-import ch.fhnw.eaf.rental.persistence.Repository;
-import ch.fhnw.eaf.rental.persistence.UserRepository;
+import javax.annotation.PostConstruct;
+import java.lang.reflect.Method;
 
 @Component
 public class TransactionManager implements PlatformTransactionManager {

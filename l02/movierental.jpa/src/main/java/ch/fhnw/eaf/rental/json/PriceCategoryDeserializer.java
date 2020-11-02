@@ -1,7 +1,6 @@
 package ch.fhnw.eaf.rental.json;
 
-import java.io.IOException;
-
+import ch.fhnw.eaf.rental.model.PriceCategory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -9,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.node.IntNode;
 
-import ch.fhnw.eaf.rental.model.PriceCategory;
+import java.io.IOException;
 
 public class PriceCategoryDeserializer extends StdDeserializer<PriceCategory> {
   private static final long serialVersionUID = -9048630333978322298L;

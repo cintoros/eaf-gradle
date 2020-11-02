@@ -1,14 +1,13 @@
 package ch.fhnw.eaf.rental.controllers;
 
-import java.util.List;
-
+import ch.fhnw.eaf.rental.model.PriceCategory;
+import ch.fhnw.eaf.rental.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ch.fhnw.eaf.rental.model.PriceCategory;
-import ch.fhnw.eaf.rental.services.MovieService;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/movierental")

@@ -15,94 +15,93 @@
  */
 package com.oreilly.springdata.jpa.model;
 
-import java.math.BigDecimal;
+import org.springframework.util.Assert;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.springframework.util.Assert;
+import java.math.BigDecimal;
 
 /**
  * A line item.
- * 
+ *
  * @author Oliver Gierke
  */
 @Entity
 @Table(name = "LINEITEM")
 public class LineItem extends AbstractEntity {
 
-	@ManyToOne
-	private Product product;
+  @ManyToOne
+  private Product product;
 
-	@Column(nullable = false)
-	private BigDecimal price;
+  @Column(nullable = false)
+  private BigDecimal price;
 
-	private int amount;
+  private int amount;
 
-	/**
-	 * Creates a new {@link LineItem} for the given {@link Product}.
-	 * 
-	 * @param product must not be {@literal null}.
-	 */
-	public LineItem(Product product) {
-		this(product, 1);
-	}
+  /**
+   * Creates a new {@link LineItem} for the given {@link Product}.
+   *
+   * @param product must not be {@literal null}.
+   */
+  public LineItem(Product product) {
+    this(product, 1);
+  }
 
-	/**
-	 * Creates a new {@link LineItem} for the given {@link Product} and amount.
-	 * 
-	 * @param product must not be {@literal null}.
-	 * @param amount
-	 */
-	public LineItem(Product product, int amount) {
+  /**
+   * Creates a new {@link LineItem} for the given {@link Product} and amount.
+   *
+   * @param product must not be {@literal null}.
+   * @param amount
+   */
+  public LineItem(Product product, int amount) {
 
-		Assert.notNull(product, "The given Product must not be null!");
-		Assert.isTrue(amount > 0, "The amount of Products to be bought must be greater than 0!");
+    Assert.notNull(product, "The given Product must not be null!");
+    Assert.isTrue(amount > 0, "The amount of Products to be bought must be greater than 0!");
 
-		this.product = product;
-		this.amount = amount;
-		this.price = product.getPrice();
-	}
+    this.product = product;
+    this.amount = amount;
+    this.price = product.getPrice();
+  }
 
-	public LineItem() {
+  public LineItem() {
 
-	}
+  }
 
-	/**
-	 * Returns the {@link Product} the {@link LineItem} refers to.
-	 * 
-	 * @return the Product
-	 */
-	public Product getProduct() {
-		return product;
-	}
+  /**
+   * Returns the {@link Product} the {@link LineItem} refers to.
+   *
+   * @return the Product
+   */
+  public Product getProduct() {
+    return product;
+  }
 
-	/**
-	 * Returns the amount of {@link Product}s to be ordered.
-	 * 
-	 * @return the amount
-	 */
-	public int getAmount() {
-		return amount;
-	}
+  /**
+   * Returns the amount of {@link Product}s to be ordered.
+   *
+   * @return the amount
+   */
+  public int getAmount() {
+    return amount;
+  }
 
-	/**
-	 * Returns the price a single unit of the {@link LineItem}'s product.
-	 * 
-	 * @return the price
-	 */
-	public BigDecimal getUnitPrice() {
-		return price;
-	}
+  /**
+   * Returns the price a single unit of the {@link LineItem}'s product.
+   *
+   * @return the price
+   */
+  public BigDecimal getUnitPrice() {
+    return price;
+  }
 
-	/**
-	 * Returns the total for the {@link LineItem}.
-	 * 
-	 * @return
-	 */
-	public BigDecimal getTotal() {
-		return price.multiply(BigDecimal.valueOf(amount));
-	}
+  /**
+   * Returns the total for the {@link LineItem}.
+   *
+   * @return
+   */
+  public BigDecimal getTotal() {
+    return price.multiply(BigDecimal.valueOf(amount));
+  }
 }

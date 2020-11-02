@@ -15,21 +15,12 @@
  */
 package com.oreilly.springdata.jpa.test;
 
-import static com.oreilly.springdata.jpa.test.matchers.CoreMatchers.named;
-import static com.oreilly.springdata.jpa.test.matchers.CoreMatchers.with;
-import static com.oreilly.springdata.jpa.test.matchers.OrderMatchers.LineItem;
-import static com.oreilly.springdata.jpa.test.matchers.OrderMatchers.Product;
-import static com.oreilly.springdata.jpa.test.matchers.OrderMatchers.containsOrder;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.assertThat;
-
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import com.oreilly.springdata.jpa.model.LineItem;
+import com.oreilly.springdata.jpa.model.Product;
+import com.oreilly.springdata.jpa.model.*;
+import com.oreilly.springdata.jpa.repository.CustomerRepository;
+import com.oreilly.springdata.jpa.repository.OrderRepository;
+import com.oreilly.springdata.jpa.repository.ProductRepository;
 import org.hamcrest.Matcher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,19 +29,19 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.oreilly.springdata.jpa.model.Address;
-import com.oreilly.springdata.jpa.model.Customer;
-import com.oreilly.springdata.jpa.model.EmailAddress;
-import com.oreilly.springdata.jpa.model.LineItem;
-import com.oreilly.springdata.jpa.model.Order;
-import com.oreilly.springdata.jpa.model.Product;
-import com.oreilly.springdata.jpa.repository.CustomerRepository;
-import com.oreilly.springdata.jpa.repository.OrderRepository;
-import com.oreilly.springdata.jpa.repository.ProductRepository;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
+
+import static com.oreilly.springdata.jpa.test.matchers.CoreMatchers.named;
+import static com.oreilly.springdata.jpa.test.matchers.CoreMatchers.with;
+import static com.oreilly.springdata.jpa.test.matchers.OrderMatchers.*;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Integration tests for {@link OrderRepository}.
- * 
+ *
  * @author Oliver Gierke
  */
 @RunWith(SpringRunner.class)
@@ -58,40 +49,40 @@ import com.oreilly.springdata.jpa.repository.ProductRepository;
 @Transactional
 public class OrderRepositoryIntegrationTest {
 
-	@PersistenceContext
-	EntityManager em;
+  @PersistenceContext
+  EntityManager em;
 
-	@Autowired
-	OrderRepository repository;
+  @Autowired
+  OrderRepository repository;
 
-	@Autowired
-	CustomerRepository customerRepository;
-	@Autowired
-	ProductRepository productRepository;
+  @Autowired
+  CustomerRepository customerRepository;
+  @Autowired
+  ProductRepository productRepository;
 
-	@Test
-	public void createOrder() {
+  @Test
+  public void createOrder() {
 
-		Customer dave = customerRepository.findByEmailAddress(new EmailAddress("dave@dmband.com"));
-		Product iPad = productRepository.findById(1L).get();
+    Customer dave = customerRepository.findByEmailAddress(new EmailAddress("dave@dmband.com"));
+    Product iPad = productRepository.findById(1L).get();
 
-		Address adr = dave.getAddresses().iterator().next();
-		Order order = new Order(dave, adr);
-		order.add(new LineItem(iPad));
+    Address adr = dave.getAddresses().iterator().next();
+    Order order = new Order(dave, adr);
+    order.add(new LineItem(iPad));
 
-		order = repository.save(order);
-		assertThat(order.getId(), is(notNullValue()));
-		em.flush();
-	}
+    order = repository.save(order);
+    assertThat(order.getId(), is(notNullValue()));
+    em.flush();
+  }
 
-	@Test
-	public void readOrder() {
+  @Test
+  public void readOrder() {
 
-		Customer dave = customerRepository.findByEmailAddress(new EmailAddress("dave@dmband.com"));
-		List<Order> orders = repository.findByCustomer(dave);
-		Matcher<Iterable<? super Order>> hasOrderForiPad = containsOrder(with(LineItem(with(Product(named("iPad"))))));
+    Customer dave = customerRepository.findByEmailAddress(new EmailAddress("dave@dmband.com"));
+    List<Order> orders = repository.findByCustomer(dave);
+    Matcher<Iterable<? super Order>> hasOrderForiPad = containsOrder(with(LineItem(with(Product(named("iPad"))))));
 
-		assertThat(orders, hasSize(1));
-		assertThat(orders, hasOrderForiPad);
-	}
+    assertThat(orders, hasSize(1));
+    assertThat(orders, hasOrderForiPad);
+  }
 }

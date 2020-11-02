@@ -15,14 +15,8 @@
  */
 package com.oreilly.springdata.jpa.test;
 
-import static com.oreilly.springdata.jpa.test.matchers.CoreMatchers.named;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-
-import java.math.BigDecimal;
-import java.util.List;
-
+import com.oreilly.springdata.jpa.model.Product;
+import com.oreilly.springdata.jpa.repository.ProductRepository;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,12 +29,17 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.oreilly.springdata.jpa.model.Product;
-import com.oreilly.springdata.jpa.repository.ProductRepository;
+import java.math.BigDecimal;
+import java.util.List;
+
+import static com.oreilly.springdata.jpa.test.matchers.CoreMatchers.named;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * Integration tests for {@link ProductRepository}.
- * 
+ *
  * @author Oliver Gierke
  */
 @RunWith(SpringRunner.class)
@@ -48,37 +47,37 @@ import com.oreilly.springdata.jpa.repository.ProductRepository;
 @Transactional
 public class ProductRepositoryIntegrationTest {
 
-	@Autowired
-	ProductRepository repository;
+  @Autowired
+  ProductRepository repository;
 
-	@Test
-	public void createProduct() {
+  @Test
+  public void createProduct() {
 
-		Product product = new Product("Camera bag", new BigDecimal(49.99));
-		product = repository.save(product);
-	}
+    Product product = new Product("Camera bag", new BigDecimal(49.99));
+    product = repository.save(product);
+  }
 
-	@Test
-	@SuppressWarnings("unchecked")
-	public void lookupProductsByDescription() {
+  @Test
+  @SuppressWarnings("unchecked")
+  public void lookupProductsByDescription() {
 
-		Pageable pageable = PageRequest.of(0, 1, Direction.DESC, "name");
-		Page<Product> page = repository.findByDescriptionContaining("Apple", pageable);
+    Pageable pageable = PageRequest.of(0, 1, Direction.DESC, "name");
+    Page<Product> page = repository.findByDescriptionContaining("Apple", pageable);
 
-		assertThat(page.getContent(), hasSize(1));
-		assertThat(page, Matchers.<Product>hasItems(named("iPad")));
-		assertThat(page.getTotalElements(), is(2L));
-		assertThat(page.isFirst(), is(true));
-		assertThat(page.isLast(), is(false));
-		assertThat(page.hasNext(), is(true));
-	}
+    assertThat(page.getContent(), hasSize(1));
+    assertThat(page, Matchers.<Product>hasItems(named("iPad")));
+    assertThat(page.getTotalElements(), is(2L));
+    assertThat(page.isFirst(), is(true));
+    assertThat(page.isLast(), is(false));
+    assertThat(page.hasNext(), is(true));
+  }
 
-	@Test
-	@SuppressWarnings("unchecked")
-	public void findsProductsByAttributes() {
+  @Test
+  @SuppressWarnings("unchecked")
+  public void findsProductsByAttributes() {
 
-		List<Product> products = repository.findByAttributeAndValue("connector", "plug");
+    List<Product> products = repository.findByAttributeAndValue("connector", "plug");
 
-		assertThat(products, Matchers.<Product>hasItems(named("Dock")));
-	}
+    assertThat(products, Matchers.<Product>hasItems(named("Dock")));
+  }
 }

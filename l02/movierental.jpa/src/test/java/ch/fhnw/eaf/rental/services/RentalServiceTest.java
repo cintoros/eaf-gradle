@@ -1,7 +1,8 @@
 package ch.fhnw.eaf.rental.services;
 
-import java.util.List;
-
+import ch.fhnw.eaf.rental.model.Movie;
+import ch.fhnw.eaf.rental.model.Rental;
+import ch.fhnw.eaf.rental.model.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,9 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import ch.fhnw.eaf.rental.model.Movie;
-import ch.fhnw.eaf.rental.model.Rental;
-import ch.fhnw.eaf.rental.model.User;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

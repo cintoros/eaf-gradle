@@ -1,52 +1,17 @@
 package ch.fhnw.eaf.rental.gui;
 
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import ch.fhnw.eaf.rental.gui.BusinessLogic.UserVisitor;
+
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.*;
 import java.net.URI;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.GroupLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSeparator;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.KeyStroke;
-import javax.swing.LayoutStyle;
-import javax.swing.ListSelectionModel;
-import javax.swing.UIManager;
-import javax.swing.WindowConstants;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.table.DefaultTableModel;
-
-import ch.fhnw.eaf.rental.gui.BusinessLogic.UserVisitor;
 
 public class MovieRentalApplicationGui extends JFrame {
 
@@ -113,6 +78,7 @@ public class MovieRentalApplicationGui extends JFrame {
   private MovieRentalMappers mappers;
   private boolean editMode = false;
   private String currDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
   public MovieRentalApplicationGui(BusinessLogic logic) {
     // set system look and feel of the application
     try {
