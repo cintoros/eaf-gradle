@@ -31,13 +31,6 @@ Voraussetzungen für das korrekte Verhalten sind:
 
 **Hinweis**: Obwohl `@Transactional` sowohl in Spring als auch in JavaEE (Package `javax.transaction`) vorhanden ist, werden wir die Annotation von Spring Framework verwenden. Es ist im Allgemeinen eine bessere Praxis, da es für Spring-Applikationen natürlicher ist und gleichzeitig mehr Optionen wie Timeout, Isolierung usw. bietet.
 
-## Ressourcen
-Die Slides zu dieser Lektion gibt es in 2 Versionen:
-* eine druckbare Version liegt auf dem AD
-* eine vertonte Version finden sie auf diesem [SWITCHtube Channel](https://tube.switch.ch/channels/d7e129eb)
-
-Auch die Arbeitsblätter und Übungen finden sie auf dem AD.
-
 ## Theorie
 Die notwendigen Theorie-Grundlagen sind in den Slides abgedeckt.
 Wichtig ist:

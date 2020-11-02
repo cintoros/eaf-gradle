@@ -7,13 +7,6 @@ In dieser Lektion werden wir den *Application Layer* (siehe Abbildung 1) unserer
 
 Abbildung 1: Layered Architecture mit *Application Layer*s
 
-## Ressourcen
-Die Slides zu dieser Lektion gibt es in 2 Versionen:
-* eine druckbare Version liegt auf dem AD
-* eine vertonte Version finden sie auf diesem [SWITCHtube Channel](https://tube.switch.ch/channels/d7e129eb)
-
-Auch die Arbeitsblätter und Übungen finden sie auf dem AD.
-
 Hier ein paar Links aus dem Internet, die aus meiner Sicht nützlich und aktuell sind:
 * [Reference Documentation Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc)
 

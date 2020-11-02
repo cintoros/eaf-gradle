@@ -6,13 +6,6 @@ In dieser Lektion wollen wir unsere *movierental* Enterprise Applikation für de
 * Aussagekräftiges Logging einführen, um das Laufzeitverhalten nachverfolgen zu können.
 * Eine externen Datenbank nutzen, so dass die persistierten Daten einen Restart der Applikation überleben können.
 
-## Ressourcen
-Die Slides zu dieser Lektion gibt es in 2 Versionen:
-* eine druckbare Version liegt auf dem AD
-* eine vertonte Version finden sie auf diesem [SWITCHtube Channel](https://tube.switch.ch/channels/d7e129eb)
-
-Auch die Arbeitsblätter und Übungen finden sie auf dem AD.
-
 ## Theorie
 Eine Einführung in Docker erhält man mit [Docker for beginners](https://docker-curriculum.com/#introduction). Dabei sind die folgende Kapitel sinnvoll für den Einstieg:
 * [Introduction](https://docker-curriculum.com/#introduction)

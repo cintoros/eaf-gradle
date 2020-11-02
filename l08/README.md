@@ -12,13 +12,6 @@ Es geht in dieser Lektion um folgende Fragen:
 ## Einleitung
 Da AOP ein Kernkonzept des Spring Framework und im *Core* enthalten ist, findet man die relevanten Informationen in der entsprechenden [Spring Reference Documentation](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/index.html). Insbesonders das Kapitel [5. Aspect Oriented Programming with Spring](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#aop) beschreibt AOP und die Umsetzung in Spring detailliert.
 
-## Ressourcen
-Die Slides zu dieser Lektion gibt es in 2 Versionen:
-* eine druckbare Version liegt auf dem AD
-* eine vertonte Version finden sie auf diesem [SWITCHtube Channel](https://tube.switch.ch/channels/d7e129eb)
-
-Auch die Arbeitsblätter und Übungen finden sie auf dem AD.
-
 ## Theorie
 Die notwenigen Theorie-Grundlagen sind in den Slides abgedeckt. Wichtig sind:
 - Begriffe kennen und verstehen
