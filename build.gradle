@@ -1,6 +1,9 @@
 plugins {
-  id 'org.springframework.boot' version '2.3.3.RELEASE' apply false
+  id 'org.springframework.boot' version '2.3.5.RELEASE' apply false
   id 'io.spring.dependency-management' version '1.0.10.RELEASE' apply false
+  id 'com.github.ben-manes.versions' version '0.33.0'
+  id 'se.patrikerdes.use-latest-versions' version '0.2.15'
+  id 'org.sonatype.gradle.plugins.scan' version '1.2.4'
 }
 allprojects {
   repositories {
@@ -29,9 +32,8 @@ subprojects {
         entry 'jooq-codegen'
       }
       dependency 'org.mariadb.jdbc:mariadb-java-client:2.6.2'
-      dependency 'org.hibernate:hibernate-jpamodelgen:5.4.21.Final'
-      dependency 'org.mapstruct:mapstruct:1.4.0.Final'
-      dependency 'org.mapstruct:mapstruct-processor:1.4.0.Final'
+      dependency 'org.mapstruct:mapstruct:1.4.1.Final'
+      dependency 'org.mapstruct:mapstruct-processor:1.4.1.Final'
       dependency 'org.springdoc:springdoc-openapi-ui:1.4.8'
     }
   }
