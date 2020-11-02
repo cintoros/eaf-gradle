@@ -1,15 +1,13 @@
 package ch.fhnw.eaf.rental.persistence.em;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import ch.fhnw.eaf.rental.model.User;
+import ch.fhnw.eaf.rental.persistence.UserRepository;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
-import ch.fhnw.eaf.rental.model.User;
-import ch.fhnw.eaf.rental.persistence.UserRepository;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Repository
 @Profile("em")

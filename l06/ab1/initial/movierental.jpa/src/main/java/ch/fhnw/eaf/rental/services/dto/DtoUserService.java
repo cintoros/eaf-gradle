@@ -1,9 +1,9 @@
 package ch.fhnw.eaf.rental.services.dto;
 
-import java.util.List;
-
 import ch.fhnw.eaf.rental.model.dto.RentalDto;
 import ch.fhnw.eaf.rental.model.dto.UserDto;
+
+import java.util.List;
 
 public interface DtoUserService {
   List<UserDto> getAllUsers();

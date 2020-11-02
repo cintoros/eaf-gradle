@@ -1,16 +1,14 @@
 package ch.fhnw.eaf.rental.services.dto;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import ch.fhnw.eaf.rental.model.Movie;
 import ch.fhnw.eaf.rental.model.dto.MovieDto;
 import ch.fhnw.eaf.rental.services.MovieService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional

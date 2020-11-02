@@ -1,10 +1,9 @@
 package ch.fhnw.eaf.persistence;
 
-import java.util.List;
-
+import ch.fhnw.eaf.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ch.fhnw.eaf.model.Customer;
+import java.util.List;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
   List<Customer> findByLastName(String lastname);

@@ -1,17 +1,15 @@
 package ch.fhnw.eaf.rental.persistence.crit;
 
-import java.util.List;
+import ch.fhnw.eaf.rental.model.User;
+import ch.fhnw.eaf.rental.model.User_;
+import ch.fhnw.eaf.rental.persistence.UserRepository;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Repository;
-
-import ch.fhnw.eaf.rental.model.User;
-import ch.fhnw.eaf.rental.model.User_;
-import ch.fhnw.eaf.rental.persistence.UserRepository;
+import java.util.List;
 
 @Repository
 @Profile("crit")

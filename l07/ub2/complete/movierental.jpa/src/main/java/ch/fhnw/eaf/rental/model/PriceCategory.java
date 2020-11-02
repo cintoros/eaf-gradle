@@ -1,19 +1,11 @@
 package ch.fhnw.eaf.rental.model;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-
+import ch.fhnw.eaf.rental.json.PriceCategoryDeserializer;
+import ch.fhnw.eaf.rental.json.PriceCategorySerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import ch.fhnw.eaf.rental.json.PriceCategoryDeserializer;
-import ch.fhnw.eaf.rental.json.PriceCategorySerializer;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PRICECATEGORIES")

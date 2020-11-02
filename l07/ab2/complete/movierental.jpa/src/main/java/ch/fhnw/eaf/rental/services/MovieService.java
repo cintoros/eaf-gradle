@@ -1,9 +1,9 @@
 package ch.fhnw.eaf.rental.services;
 
-import java.util.List;
-
 import ch.fhnw.eaf.rental.model.Movie;
 import ch.fhnw.eaf.rental.model.PriceCategory;
+
+import java.util.List;
 
 public interface MovieService {
   public Movie getMovieById(Long id);

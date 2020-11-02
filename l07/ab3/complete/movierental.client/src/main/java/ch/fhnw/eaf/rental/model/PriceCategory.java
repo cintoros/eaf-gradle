@@ -1,10 +1,9 @@
 package ch.fhnw.eaf.rental.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import ch.fhnw.eaf.rental.json.PriceCategoryDeserializer;
 import ch.fhnw.eaf.rental.json.PriceCategorySerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonDeserialize(using = PriceCategoryDeserializer.class)
 @JsonSerialize(using = PriceCategorySerializer.class)

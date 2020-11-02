@@ -1,10 +1,10 @@
 package ch.fhnw.eaf.rental.services;
 
-import java.util.List;
-
 import ch.fhnw.eaf.rental.model.Movie;
 import ch.fhnw.eaf.rental.model.Rental;
 import ch.fhnw.eaf.rental.model.User;
+
+import java.util.List;
 
 public interface UserService {
   public User getUserById(Long id);

@@ -1,7 +1,10 @@
 package ch.fhnw.eaf.rental.services.impl;
 
-import java.util.List;
-
+import ch.fhnw.eaf.rental.model.Movie;
+import ch.fhnw.eaf.rental.model.PriceCategory;
+import ch.fhnw.eaf.rental.persistence.MovieRepository;
+import ch.fhnw.eaf.rental.persistence.PriceCategoryRepository;
+import ch.fhnw.eaf.rental.services.MovieService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import ch.fhnw.eaf.rental.model.Movie;
-import ch.fhnw.eaf.rental.model.PriceCategory;
-import ch.fhnw.eaf.rental.persistence.MovieRepository;
-import ch.fhnw.eaf.rental.persistence.PriceCategoryRepository;
-import ch.fhnw.eaf.rental.services.MovieService;
+import java.util.List;
 
 @Service
 @Transactional

@@ -1,14 +1,13 @@
 package ch.fhnw.eaf.rental.persistence.crit;
 
-import java.util.List;
-import java.util.Optional;
+import ch.fhnw.eaf.rental.persistence.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-
-import ch.fhnw.eaf.rental.persistence.Repository;
+import java.util.List;
+import java.util.Optional;
 
 public abstract class AbstractJpaRepository<T> implements Repository<T, Long> {
 

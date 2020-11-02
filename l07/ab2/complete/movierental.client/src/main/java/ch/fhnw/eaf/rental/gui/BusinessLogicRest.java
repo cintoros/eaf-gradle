@@ -1,9 +1,9 @@
 package ch.fhnw.eaf.rental.gui;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.List;
-
+import ch.fhnw.eaf.rental.model.Movie;
+import ch.fhnw.eaf.rental.model.PriceCategory;
+import ch.fhnw.eaf.rental.model.Rental;
+import ch.fhnw.eaf.rental.model.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.ParameterizedTypeReference;
@@ -12,10 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import ch.fhnw.eaf.rental.model.Movie;
-import ch.fhnw.eaf.rental.model.PriceCategory;
-import ch.fhnw.eaf.rental.model.Rental;
-import ch.fhnw.eaf.rental.model.User;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 @Component
 public class BusinessLogicRest implements BusinessLogic {

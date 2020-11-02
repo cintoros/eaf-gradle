@@ -1,13 +1,12 @@
 package ch.fhnw.eaf.rental;
 
+import ch.fhnw.eaf.rental.gui.BusinessLogic;
+import ch.fhnw.eaf.rental.gui.MovieRentalApplicationGui;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-
-import ch.fhnw.eaf.rental.gui.BusinessLogic;
-import ch.fhnw.eaf.rental.gui.MovieRentalApplicationGui;
 
 @SpringBootApplication
 public class MovieRentalClient implements CommandLineRunner {

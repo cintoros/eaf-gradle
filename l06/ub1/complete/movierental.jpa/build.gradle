@@ -6,10 +6,10 @@ dependencies {
   developmentOnly 'org.springframework.boot:spring-boot-devtools'
   implementation("org.springframework.boot:spring-boot-starter-web")
   // Criteria API
-  annotationProcessor('org.hibernate:hibernate-jpamodelgen:5.4.21.Final')
+  annotationProcessor('org.hibernate:hibernate-jpamodelgen')
   // MapStruct
-  implementation("org.mapstruct:mapstruct:1.4.0.Final")
-  annotationProcessor("org.mapstruct:mapstruct-processor:1.4.0.Final")
+  implementation("org.mapstruct:mapstruct")
+  annotationProcessor("org.mapstruct:mapstruct-processor")
   // Swagger, OpenAPI
-  implementation("org.springdoc:springdoc-openapi-ui:1.4.8")
+  implementation("org.springdoc:springdoc-openapi-ui")
 }

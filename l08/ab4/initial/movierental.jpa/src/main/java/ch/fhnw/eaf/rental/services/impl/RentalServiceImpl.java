@@ -1,16 +1,15 @@
 package ch.fhnw.eaf.rental.services.impl;
 
-import java.util.List;
-
+import ch.fhnw.eaf.rental.model.Rental;
+import ch.fhnw.eaf.rental.persistence.RentalRepository;
+import ch.fhnw.eaf.rental.services.RentalService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ch.fhnw.eaf.rental.model.Rental;
-import ch.fhnw.eaf.rental.persistence.RentalRepository;
-import ch.fhnw.eaf.rental.services.RentalService;
+import java.util.List;
 
 @Service
 @Transactional

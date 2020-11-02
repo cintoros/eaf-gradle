@@ -1,9 +1,5 @@
 package ch.fhnw.eaf.rental.services.dto;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import ch.fhnw.eaf.rental.model.Movie;
 import ch.fhnw.eaf.rental.model.PriceCategory;
 import ch.fhnw.eaf.rental.model.Rental;
@@ -12,6 +8,9 @@ import ch.fhnw.eaf.rental.model.dto.MovieDto;
 import ch.fhnw.eaf.rental.model.dto.RentalDto;
 import ch.fhnw.eaf.rental.model.dto.UserDto;
 import ch.fhnw.eaf.rental.persistence.PriceCategoryRepository;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Mapper(componentModel = "spring")
 public abstract class MovieMapper {

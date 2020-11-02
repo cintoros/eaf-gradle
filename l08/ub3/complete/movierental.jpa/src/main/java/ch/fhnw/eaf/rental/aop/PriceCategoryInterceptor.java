@@ -1,7 +1,8 @@
 package ch.fhnw.eaf.rental.aop;
 
-import java.util.Optional;
-
+import ch.fhnw.eaf.rental.model.Movie;
+import ch.fhnw.eaf.rental.model.PriceCategory;
+import ch.fhnw.eaf.rental.persistence.PriceCategoryRepository;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -10,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import ch.fhnw.eaf.rental.model.Movie;
-import ch.fhnw.eaf.rental.model.PriceCategory;
-import ch.fhnw.eaf.rental.persistence.PriceCategoryRepository;
+import java.util.Optional;
 
 @Aspect
 @Component

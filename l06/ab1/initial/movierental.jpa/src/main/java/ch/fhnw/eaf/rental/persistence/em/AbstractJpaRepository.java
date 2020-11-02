@@ -1,13 +1,12 @@
 package ch.fhnw.eaf.rental.persistence.em;
 
-import java.lang.reflect.ParameterizedType;
-import java.util.List;
-import java.util.Optional;
+import ch.fhnw.eaf.rental.persistence.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
-import ch.fhnw.eaf.rental.persistence.Repository;
+import java.lang.reflect.ParameterizedType;
+import java.util.List;
+import java.util.Optional;
 
 public abstract class AbstractJpaRepository<T> implements Repository<T, Long> {
 

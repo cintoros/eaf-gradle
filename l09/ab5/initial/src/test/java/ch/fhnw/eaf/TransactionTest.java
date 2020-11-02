@@ -1,19 +1,18 @@
 package ch.fhnw.eaf;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.util.List;
-
+import ch.fhnw.eaf.model.Customer;
+import ch.fhnw.eaf.services.CustomerService;
+import ch.fhnw.eaf.services.ServiceException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
-import ch.fhnw.eaf.model.Customer;
-import ch.fhnw.eaf.services.CustomerService;
-import ch.fhnw.eaf.services.ServiceException;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 @SpringBootTest

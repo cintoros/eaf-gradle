@@ -1,14 +1,13 @@
 package ch.fhnw.eaf.services;
 
-import java.util.List;
-
+import ch.fhnw.eaf.model.Customer;
+import ch.fhnw.eaf.persistence.CustomerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ch.fhnw.eaf.model.Customer;
-import ch.fhnw.eaf.persistence.CustomerRepository;
+import java.util.List;
 
 @Service
 public class CustomerService {
