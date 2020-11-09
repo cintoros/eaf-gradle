@@ -14,3 +14,12 @@ dependencies {
   // Swagger, OpenAPI
   implementation("org.springdoc:springdoc-openapi-ui")
 }
+test {
+  exclude '**/MovieRepositoryTest.class'
+  exclude '**/PriceCategoryRepositoryTest.class'
+  exclude '**/RentalRepositoryTest.class'
+  exclude '**/UserRepositoryTest.class'
+  exclude '**/MovieServiceTest.class'
+  exclude '**/RentalServiceTest.class'
+  exclude '**/UserServiceTest.class'
+}
