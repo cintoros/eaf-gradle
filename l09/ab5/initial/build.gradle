@@ -6,6 +6,9 @@ dependencies {
     exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
   }
 }
+task l09_ab_initial{
+  dependsOn bootRun
+}
 test{
   exclude '**'
 }
