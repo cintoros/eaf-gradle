@@ -5,6 +5,7 @@ plugins {
   id 'se.patrikerdes.use-latest-versions' version '0.2.15'
   id 'org.sonatype.gradle.plugins.scan' version '1.2.4'
 }
+
 allprojects {
   repositories {
     mavenLocal()
