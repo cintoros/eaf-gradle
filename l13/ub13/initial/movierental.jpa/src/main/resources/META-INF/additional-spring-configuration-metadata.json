@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "movierental.index.regular",
+    "type": "java.lang.String",
+    "description": "A description for 'movierental.index.regular'"
+  },
+  {
+    "name": "movierental.index.children",
+    "type": "java.lang.String",
+    "description": "A description for 'movierental.index.children'"
+  }
+]}

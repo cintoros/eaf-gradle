@@ -1,0 +1,38 @@
+
+
+repositories {
+	mavenCentral()
+}
+
+bootJar {
+	launchScript()
+}
+
+defaultTasks 'clean', 'bootJar'
+
+archivesBaseName = 'movierental-client'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+	description "Creates student distribution of this project."
+	group = 'distribution'
+
+	dependsOn gradleWrapper
+
+    from projectDir
+
+    include 'build.gradle'
+    include 'gradlew'
+    include 'gradlew.bat'
+    include 'gradle/'
+
+    include 'src/**'
+}
